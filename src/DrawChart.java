@@ -17,7 +17,7 @@ public class DrawChart extends Application {
     public void start(Stage stage) throws Exception {
         CsvFileReader csv = new CsvFileReader();
         csv.readCSV();
-        stage.setTitle("Let's draw a square!");
+        stage.setTitle("TypeRacer - Chart");
         double[] xs = new double[csv.raceDB.size()];
         double[] ys = new double[csv.raceDB.size()];
 
@@ -47,7 +47,7 @@ public class DrawChart extends Application {
 
         // calculate the polynomial coefficients and calculate trend points
         //coefficient - 7, poly - 15
-        double[] coefficients = polyfit(xs, ys, 3);
+        double[] coefficients = polyfit(xs, ys, 4);
         System.out.println(coefficients[0]);
 
         for (double x = 0; x < csv.raceDB.size(); x += 5) {
@@ -56,9 +56,11 @@ public class DrawChart extends Application {
         }
 
 
-        lineChart.setTitle("Typeracer");
+        lineChart.setTitle("ahn94's progress");
         lineChart.getData().add(series1);
         lineChart.getData().add(series2);
+        lineChart.setLegendVisible(false);
+        yAxis.setForceZeroInRange(false);
         lineChart.getStylesheets().add(DrawChart.class.getResource("style.css").toExternalForm());
 
         StackPane root = new StackPane();

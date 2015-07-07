@@ -35,7 +35,14 @@ public class CsvFileReader {
             String[] raceA = new String[6];
             String line = in.nextLine();
             raceA = line.split(",");
-            raceDB.add(new Race(Integer.parseInt(raceA[0]), Integer.parseInt(raceA[1]), Double.parseDouble(raceA[2]), Integer.parseInt(raceA[3]), Integer.parseInt(raceA[4]), raceA[5]));
+            raceDB.add(new Race(
+                    Integer.parseInt(raceA[0]),
+                    Integer.parseInt(raceA[1]),
+                    Double.parseDouble(raceA[2]),
+                    Integer.parseInt(raceA[3]),
+                    Integer.parseInt(raceA[4]),
+                    raceA[5])
+            );
         }
     }
 

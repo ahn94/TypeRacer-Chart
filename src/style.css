@@ -1,0 +1,48 @@
+.default-color0.chart-series-line {
+    -fx-stroke: transparent;
+}
+
+.default-color1.chart-line-symbol {
+    -fx-background-color: transparent;
+}
+
+.default-color0.chart-line-symbol { /* solid circle */
+    -fx-background-color: #3278fa, white;
+    -fx-padding: 3px;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 3px;
+    -fx-stroke-width: 10px;
+}
+
+
+
+.default-color1.chart-series-line {
+    -fx-stroke: #1f1f1f;
+}
+
+.chart-plot-background {
+    -fx-background-color: #f5f5f5;
+}
+.chart-vertical-grid-lines {
+    -fx-stroke: #dddddd;
+}
+.chart-horizontal-grid-lines {
+    -fx-stroke: darkgrey;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 8, 0.0 , 0 , 0 );
+}
+.chart-alternative-column-fill {
+    -fx-fill: #eeeeee;
+    -fx-stroke: transparent;
+    -fx-stroke-width: 0;
+}
+.chart-alternative-row-fill {
+    -fx-fill: #eeeeee;
+    -fx-stroke: transparent;
+    -fx-stroke-width: 0;
+}
+.chart-vertical-zero-line {
+    -fx-stroke: #999999;
+}
+.chart-horizontal-zero-line {
+    -fx-stroke: #999999;
+}

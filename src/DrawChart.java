@@ -10,7 +10,7 @@ import static thorwin.math.Math.polyfit;
 import static thorwin.math.Math.polynomial;
 
 
-public class SquareDrawer extends Application {
+public class DrawChart extends Application {
 
     @Override
     @SuppressWarnings("unchecked")
@@ -59,7 +59,7 @@ public class SquareDrawer extends Application {
         lineChart.setTitle("Typeracer");
         lineChart.getData().add(series1);
         lineChart.getData().add(series2);
-        lineChart.getStylesheets().add(SquareDrawer.class.getResource("style.css").toExternalForm());
+        lineChart.getStylesheets().add(DrawChart.class.getResource("style.css").toExternalForm());
 
         StackPane root = new StackPane();
         root.getChildren().add(lineChart);

@@ -43,7 +43,7 @@ public class DrawChart extends Application {
         XYChart.Series<Number, Number> series1 = new XYChart.Series();
 
         //series2 polynominal curve data points
-        XYChart.Series<Double, Double> series2 = new XYChart.Series();
+        XYChart.Series<Number, Number> series2 = new XYChart.Series();
 
         //populates the xy arrays with data
         for (int x = 0; x < csv.raceDB.size(); x++) {
@@ -63,7 +63,7 @@ public class DrawChart extends Application {
         //using polynomial formula
         for (double x = 0; x < csv.raceDB.size(); x += 5) {
             double y = polynomial(x, coefficients);
-            series2.getData().add(new XYChart.Data<Double, Double>(x,y));
+            series2.getData().add(new XYChart.Data<Number, Number>(x,y));
         }
 
         //line chart title

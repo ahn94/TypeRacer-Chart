@@ -85,7 +85,7 @@ public class DrawChart extends Application {
         //adds linechart to root
         root.getChildren().add(lineChart);
         //creates scene & adds the container
-        Scene scene = new Scene(root, 800, 600);
+        Scene scene = new Scene(root, 1700, 900);
         //fills stage(stage is complete program window)
         stage.setScene(scene);
         //makes window visible

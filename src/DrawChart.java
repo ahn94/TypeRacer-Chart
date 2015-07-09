@@ -37,13 +37,13 @@ public class DrawChart extends Application {
         yAxis.setLabel("WPM");
 
         //create line chart
-        final LineChart<Number, Number> lineChart = new LineChart<Number, Number>(xAxis,yAxis);
+        final LineChart lineChart = new LineChart(xAxis,yAxis);
 
         //series1 scatter style data points
         XYChart.Series<Number, Number> series1 = new XYChart.Series();
 
         //series2 polynominal curve data points
-        XYChart.Series<Number, Number> series2 = new XYChart.Series();
+        XYChart.Series series2 = new XYChart.Series();
 
         //populates the xy arrays with data
         for (int x = 0; x < csv.raceDB.size(); x++) {
@@ -63,7 +63,7 @@ public class DrawChart extends Application {
         //using polynomial formula
         for (double x = 0; x < csv.raceDB.size(); x += 5) {
             double y = polynomial(x, coefficients);
-            series2.getData().add(new XYChart.Data<Number, Number>(x,y));
+            series2.getData().add(new XYChart.Data(x,y));
         }
 
         //line chart title

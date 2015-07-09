@@ -1,10 +1,15 @@
 import javafx.application.Application;
+import javafx.beans.property.ObjectProperty;
 import javafx.scene.Scene;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.LineChart;
+
+import javax.swing.plaf.TabbedPaneUI;
 
 import static thorwin.math.Math.polyfit;
 import static thorwin.math.Math.polynomial;
@@ -78,13 +83,18 @@ public class DrawChart extends Application {
         yAxis.setForceZeroInRange(false);
 
         //points the line chart to use CSS style chart
-        lineChart.getStylesheets().add(DrawChart.class.getResource("style.css").toExternalForm());
+//        lineChart.getStylesheets().add(DrawChart.class.getResource("style.css").toExternalForm());
 
-        //stackpane container
-        StackPane root = new StackPane();
-        //adds linechart to root
-        root.getChildren().add(lineChart);
-        //creates scene & adds the container
+
+        //tab container & tabs
+        TabPane root = new TabPane();
+        root.setTabClosingPolicy(TabPane.TabClosingPolicy.valueOf("UNAVAILABLE"));
+        Tab tab1 = new Tab("Line Chart");
+        Tab tab2 = new Tab("Pie Chart");
+        tab1.setContent(lineChart);
+        root.getTabs().add(tab1);
+        root.getTabs().add(tab2);
+
         Scene scene = new Scene(root, 1700, 900);
         //fills stage(stage is complete program window)
         stage.setScene(scene);

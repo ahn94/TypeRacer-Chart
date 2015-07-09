@@ -32,7 +32,7 @@ public class CsvFileReader {
         int x = 0;
 
         while (in.hasNextLine()){
-            String[] raceA = new String[6];
+            String[] raceA;
             String line = in.nextLine();
             raceA = line.split(",");
             raceDB.add(new Race(

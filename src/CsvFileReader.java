@@ -46,4 +46,52 @@ public class CsvFileReader {
         }
     }
 
+
+    public int getPieData(int y){
+        int[] percentage = new int[11];
+        for (int x = 0; x < raceDB.size(); x++){
+            switch ((int)(raceDB.get(x).getAccuracy()*100)) {
+                case 100:
+                    percentage[10]++;
+                    break;
+                case 99:
+                    percentage[9]++;
+                    break;
+                case 98:
+                    percentage[8]++;
+                    break;
+                case 97:
+                    percentage[7]++;
+                    break;
+                case 96:
+                    percentage[6]++;
+                    break;
+                case 95:
+                    percentage[5]++;
+                    break;
+                case 94:
+                    percentage[4]++;
+                    break;
+                case 93:
+                    percentage[3]++;
+                    break;
+                case 92:
+                    percentage[2]++;
+                    break;
+                case 91:
+                    percentage[1]++;
+                    break;
+                case 90:
+                    percentage[0]++;
+                    break;
+                default:
+                    percentage[0]++;
+                    break;
+
+            }
+        }
+        return percentage[y];
+    }
+
+
 }

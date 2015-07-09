@@ -1,15 +1,15 @@
 import javafx.application.Application;
-import javafx.beans.property.ObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.LineChart;
 
-import javax.swing.plaf.TabbedPaneUI;
 
 import static thorwin.math.Math.polyfit;
 import static thorwin.math.Math.polynomial;
@@ -83,7 +83,7 @@ public class DrawChart extends Application {
         yAxis.setForceZeroInRange(false);
 
         //points the line chart to use CSS style chart
-//        lineChart.getStylesheets().add(DrawChart.class.getResource("style.css").toExternalForm());
+        lineChart.getStylesheets().add(DrawChart.class.getResource("style.css").toExternalForm());
 
 
         //tab container & tabs
@@ -94,6 +94,24 @@ public class DrawChart extends Application {
         tab1.setContent(lineChart);
         root.getTabs().add(tab1);
         root.getTabs().add(tab2);
+
+
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+                new PieChart.Data("100% ", csv.getPieData(10)),
+                new PieChart.Data("99% ", csv.getPieData(9)),
+                new PieChart.Data("98% ", csv.getPieData(8)),
+                new PieChart.Data("97% ", csv.getPieData(7)),
+                new PieChart.Data("96% ", csv.getPieData(6)),
+                new PieChart.Data("95% ", csv.getPieData(5)),
+                new PieChart.Data("94% ", csv.getPieData(4)),
+                new PieChart.Data("93% ", csv.getPieData(3)),
+                new PieChart.Data("92% ", csv.getPieData(2)),
+                new PieChart.Data("91% ", csv.getPieData(1)),
+                new PieChart.Data("<= 90% ", csv.getPieData(0))
+
+        );
+        final PieChart pieChart = new PieChart(pieChartData);
+        tab2.setContent(pieChart);
 
         Scene scene = new Scene(root, 1700, 900);
         //fills stage(stage is complete program window)
